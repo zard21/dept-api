@@ -30,6 +30,10 @@ public class DeptService {
     public DeptGroup getDeptGroup(Long id) {
         DeptGroup deptGroup = deptGroupRepository.findById(id).orElse(null);
 
+        for (int i = 0; i < 100; i++) {
+            System.out.println("DeptGroup No." + i);
+        }
+
         if (deptGroup == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "DeptGroup Not Found");
         } else {
