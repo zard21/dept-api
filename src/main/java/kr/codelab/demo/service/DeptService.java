@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.io.FileOutputStream;
 import java.util.List;
 
 @Service
@@ -42,6 +43,14 @@ public class DeptService {
     }
 
     public DeptGroup getDeptGroup(String name) {
+
+        try {
+            FileOutputStream stream = new FileOutputStream("/Users/");
+            stream.write(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         DeptGroup deptGroup = deptGroupRepository.findByName(name).orElse(null);
 
         if (deptGroup == null) {
